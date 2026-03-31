@@ -26,6 +26,8 @@ iv. VetAppointments: This class is responsible for adding and viewing vet appoin
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
+Yes, during implementation my design changed based on Claude Code suggestions. The change is adding and removing appointments by a unique ID as the key for accessing a specific appointment instead of using the four attributes associated with it (date, address, vetName, reason) which could have easily led to a potential logic bottleneck of misspelling any of these attributes.
+
 ---
 
 ## 2. Scheduling Logic and Tradeoffs
