@@ -2,10 +2,24 @@
 
 ## 1. System Design
 
+Three core actions a user should be able to perform on PawPal+ are:
+i. Update and view pet details
+ii. Create a schedule for feeding
+iii. Add and view vet appointments
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+
+The classes I included are Pet, FoodSchedule, and VetAppointments.
+i. Pet: This class is responsible for viewing details about a pet and updating them. The attributes are String name, int age, String gender, String animal, String breed. The methods are getter (e.g. getName()) and setter (e.g. setAge(int age)) methods for the attributes, getInfo() for displaying all information about the current pet, and eat(String time) for tracking when the pet is fed.
+
+ii. FoodSchedule: This class is responsible for creating a schedule for feeding a pet and keeping track of when the pet eats. The attributes are Pet pet, List<String> feedingTimes. The methods are addFeedingTime(String time), removeFeedingTime(String time), getSchedule(), markFed(String time).
+
+iii. Appointment: This class is responsible for tracking information about appointments. The attributes are String date, String address, String vetName, String reason. The methods are getter and setter methods for all attributes.
+
+iv. VetAppointments: This class is responsible for adding and viewing vet appointments for a pet, and recording reasons for a visit. The attributes are Pet pet, List<Appointment> appointments. The methods are addAppointment(String date, String address, String vetName, String reason), viewAppointments(), removeAppointment(String date, String address, String vetName, String reason), getNextAppointment().
 
 **b. Design changes**
 
