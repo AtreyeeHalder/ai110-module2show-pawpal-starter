@@ -50,3 +50,27 @@ New features:
 - Flexible filtering (filter_tasks): Tasks can be filtered by pet name, completion status, or both combined.
 - Automating recurring tasks (mark_task_complete): When a daily or weekly task is marked complete, a new instance is automatically added with the next due date. 
 - Time conflict detection (detect_conflicts): Checks if two tasks for the same or different pet are scheduled at the same time. It returns a warning message if there is a time conflict.
+
+## Testing PawPal+
+
+### Command to run tests
+
+```bash
+python -m pytest
+```
+
+### What the tests cover
+
+The test suite in tests/test_pawpal.py verifies four core areas:
+
+- **Task completion** — marking a task done correctly flips its `completed` status.
+- **Task addition** — adding a task to a pet increases the pet's task count.
+- **Chronological sorting** — `get_all_tasks_sorted_by_time` returns tasks in true clock order (AM before PM) across multiple pets, and returns an empty list when there are no tasks.
+- **Recurrence logic** — completing a `daily` task auto-creates a new task due tomorrow; completing a `weekly` task creates one due in 7 days; `monthly` tasks are marked done without creating a new instance; and attempting to complete an already-finished or non-existent task is handled gracefully.
+- **Conflict detection** — `detect_conflicts` reports exactly one warning per overlapping time slot, names both pets involved, includes the time in the message, and returns an empty list when there are no conflicts.
+
+### Confidence Level
+
+**4 / 5 stars**
+
+The scheduling logic is well-tested through pytest tests across the main happy paths and important edge cases (empty schedules, unknown pets, already-completed tasks, multi-pet time conflicts). However, one star is withheld because the UI layer (`app.py`) has no automated tests, and integration between the Streamlit front-end and the scheduler is only verified manually.
