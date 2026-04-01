@@ -74,3 +74,7 @@ The test suite in tests/test_pawpal.py verifies four core areas:
 **4 / 5 stars**
 
 The scheduling logic is well-tested through pytest tests across the main happy paths and important edge cases (empty schedules, unknown pets, already-completed tasks, multi-pet time conflicts). However, one star is withheld because the UI layer (`app.py`) has no automated tests, and integration between the Streamlit front-end and the scheduler is only verified manually.
+
+## 📸 Demo
+
+<a href="pawpal_demo.png" target="_blank"><img src='pawpal_demo.png' title='PawPal App' width='' alt='PawPal App' class='center-block' /></a>.
