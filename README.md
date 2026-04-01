@@ -41,3 +41,12 @@ pip install -r requirements.txt
 5. Add tests to verify key behaviors.
 6. Connect your logic to the Streamlit UI in `app.py`.
 7. Refine UML so it matches what you actually built.
+
+## Smarter Scheduling
+
+New features:
+
+- Chronological sorting (get_all_tasks_sorted_by_time): Tasks across all pets are sorted by actual clock time using HH:MM format.
+- Flexible filtering (filter_tasks): Tasks can be filtered by pet name, completion status, or both combined.
+- Automating recurring tasks (mark_task_complete): When a daily or weekly task is marked complete, a new instance is automatically added with the next due date. 
+- Time conflict detection (detect_conflicts): Checks if two tasks for the same or different pet are scheduled at the same time. It returns a warning message if there is a time conflict.

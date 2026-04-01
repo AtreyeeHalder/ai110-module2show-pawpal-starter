@@ -37,10 +37,14 @@ Yes, during implementation my design changed based on Claude Code suggestions. T
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
 
+The most important constraint my scheduler considers is time because if pet care tasks are not done on time, it could lead to the pet being unhappy or having health problems. 
+
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+
+A tradeoff my scheduler makes is that the mark_task_complete method uses string matching on the task description instead of using a unique ID to mark the specific tasks as complete. This tradeoff is reasonable because it is easier for a user to input the task description instead of remembering a unique ID. 
 
 ---
 
